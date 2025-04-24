@@ -13,7 +13,7 @@ export default function AddNot() {
 
   const handleSave = () => {
     createNote(note);
-    // window.location.reload()
+    window.location.reload();
     setNote("");
   };
 

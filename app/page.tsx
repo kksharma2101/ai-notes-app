@@ -15,13 +15,13 @@ export default function Home() {
       } = await supabase.auth.getSession();
       if (session) {
         setFindSession(session);
+        router.push("/notes");
       } else {
         router.push("/auth/signup");
-        return;
       }
     }
     getSession();
   }, [supabase]);
 
-  return <>{findSession && router.push("/notes")}</>;
+  return <></>;
 }

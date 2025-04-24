@@ -28,7 +28,7 @@ export function Navbar() {
 
   async function signOut() {
     await supabase.auth.signOut();
-    router.refresh();
+    router.push("/");
   }
 
   return (
