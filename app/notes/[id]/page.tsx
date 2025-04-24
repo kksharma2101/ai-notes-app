@@ -6,7 +6,7 @@ import { createClient } from "@/hooks/useSupabase";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-export default function page() {
+export default function Page() {
   const [note, setNote] = useState("");
   const supabase = createClient();
   const params = useParams();

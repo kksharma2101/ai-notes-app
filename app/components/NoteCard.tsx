@@ -33,7 +33,7 @@ export function NoteCard() {
     fetchNotes();
   }, [supabase]);
 
-  const handleDelete = async (id: any) => {
+  const handleDelete = async (id: string) => {
     try {
       const { error } = await supabase.from("note").delete().eq("id", id);
       if (error) console.log("error in delete", error);
@@ -43,7 +43,7 @@ export function NoteCard() {
     }
   };
 
-  const handleEdit = (id: any) => {
+  const handleEdit = (id: string) => {
     router.push(`/notes/${id}`);
   };
 

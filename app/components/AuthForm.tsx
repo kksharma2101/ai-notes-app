@@ -1,8 +1,7 @@
 "use client";
-// _components/AuthForm.tsx
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-// import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -106,14 +105,14 @@ export const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
       <p className="mt-4 text-center text-gray-500 text-xs">
         {isLogin ? (
           <>
-            Don't have an account?{" "}
+            Don&apos;t have an account?
             <Link href="/auth/signup" className="text-blue-500">
               Sign Up
             </Link>
           </>
         ) : (
           <>
-            Already have an account?{" "}
+            Already have an account?
             <Link href="/auth/login" className="text-blue-500">
               Login
             </Link>
@@ -124,4 +123,3 @@ export const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
   );
 };
 
-// export default AuthForm;
