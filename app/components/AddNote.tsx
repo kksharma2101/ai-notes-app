@@ -50,36 +50,3 @@ export default function AddNot() {
     </div>
   );
 }
-
-//
-
-// "use client";
-// import { useSummarize } from "@/hooks/useSummarize";
-// import { useState } from "react";
-// import { Button } from "@/components/ui/button";
-// import { Textarea } from "@/components/ui/textarea";
-
-// export default function AddNot() {
-//   const [note, setNote] = useState("");
-//   const { mutate: summarize, data: summary, isPending } = useSummarize();
-
-//   return (
-//     <div className="max-w-xl mx-auto space-y-4">
-//       <Textarea
-//         placeholder="Write your note here..."
-//         value={note}
-//         onChange={(e) => setNote(e.target.value)}
-//         className="min-h-[150px]"
-//       />
-//       <Button onClick={() => summarize(note)} disabled={isPending}>
-//         {isPending ? "Summarizing..." : "Summarize Note"}
-//       </Button>
-//       {summary && (
-//         <div className="mt-4 p-4 rounded bg-gray-100 border">
-//           <h3 className="font-semibold">Summary:</h3>
-//           <p>{summary}</p>
-//         </div>
-//       )}
-//     </div>
-//   );
-// }

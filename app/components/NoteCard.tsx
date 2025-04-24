@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardHeader,
-  CardTitle,
   CardDescription,
   CardContent,
   CardFooter,
@@ -15,12 +14,6 @@ import { Note } from "@/lib/types";
 import { Pencil, Trash2, Bookmark, Share2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
-interface NoteCardProps {
-  note: Note;
-  // onDelete?: (id: string) => void;
-  // onEdit?: (id: string) => void;
-}
 
 export function NoteCard() {
   const [notes, setNotes] = useState<Note[]>([]);
@@ -44,24 +37,14 @@ export function NoteCard() {
     try {
       const { error } = await supabase.from("note").delete().eq("id", id);
       if (error) console.log("error in delete", error);
-      router.refresh();
+      window.location.reload();
     } catch (error) {
       console.log("Error in delete function", error);
     }
   };
 
-  const handleEdit = async (id: any) => {
-    try {
-      const { error } = await supabase
-        .from("notes")
-        .update({
-          //  content,
-          updated_at: new Date().toISOString(),
-        })
-        .eq("id", id);
-    } catch (error) {
-      console.log("Error in edit note", error);
-    }
+  const handleEdit = (id: any) => {
+    router.push(`/notes/${id}`);
   };
 
   return (
@@ -89,10 +72,10 @@ export function NoteCard() {
           </CardHeader>
 
           <CardContent className="space-y-2">
-            <p className="text-gray-700 line-clamp-3">Your Summary</p>
+            <p className="text-gray-700 line-clamp-3">Summary</p>
             {note.content && (
               <div className="bg-blue-50 p-3 rounded-md">
-                <p className="text-sm text-blue-800 font-medium">Summary</p>
+                {/* <p className="text-sm text-blue-800 font-medium">Summary</p> */}
                 <p className="text-sm text-blue-700">{note.content}</p>
               </div>
             )}
@@ -103,7 +86,7 @@ export function NoteCard() {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={handleEdit}
+                onClick={() => handleEdit(note?.id)}
                 className="cursor-pointer"
               >
                 <Pencil className="mr-2 h-4 w-4" />
