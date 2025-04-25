@@ -99,7 +99,7 @@ export function Navbar() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem asChild>
-                  <Link href="/profile">Profile</Link>
+                  <Link href="/">Profile</Link>
                 </DropdownMenuItem>
                 {/* <DropdownMenuItem asChild>
                 <Link href="/settings">Settings</Link>

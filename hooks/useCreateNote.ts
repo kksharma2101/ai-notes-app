@@ -9,17 +9,17 @@ export const useCreateNote = () => {
     return useMutation({
         mutationFn: async (noteContent: string) => {
             const { data: { user } } = await supabase.auth.getUser();
-            if (!user) {
-                alert('Please sign in first!');
-                return;
-            }
+            // if (!user) {
+            // alert('Please sign in first!');
+            // return;
+            // }
             const {
                 data,
                 error,
             } = await supabase.from('note').insert([{
                 id: uuid,
                 content: noteContent,
-                user_id: user.id,
+                user_id: user?.id,
                 created_at: new Date().toISOString()
             }]);
             if (error)

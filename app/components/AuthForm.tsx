@@ -28,7 +28,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
         // Handle login error
         console.error("Login failed:", error);
       } else {
-        router.push("/notes");
+        router.push("/");
       }
     } else {
       const { error } = await supabaseClient.auth.signUp({ email, password });
@@ -36,8 +36,8 @@ export const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
         // Handle signup error
         console.error("Signup failed:", error);
       } else {
-        alert("pls!, Verify your email")
-        router.push("/notes");
+        alert("pls!, Verify your email");
+        router.push("/");
       }
     }
   };
@@ -49,7 +49,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
     if (error) {
       console.error("Google sign-in error:", error);
     } else {
-      router.push("/notes");
+      router.push("/");
     }
   };
 
@@ -123,4 +123,3 @@ export const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
     </form>
   );
 };
-
