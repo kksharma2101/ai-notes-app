@@ -28,7 +28,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
         // Handle login error
         console.error("Login failed:", error);
       } else {
-        router.push("/");
+        router.push("/notes");
       }
     } else {
       const { error } = await supabaseClient.auth.signUp({ email, password });
@@ -36,7 +36,8 @@ export const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
         // Handle signup error
         console.error("Signup failed:", error);
       } else {
-        router.push("/");
+        alert("pls!, Verify your email")
+        router.push("/notes");
       }
     }
   };
