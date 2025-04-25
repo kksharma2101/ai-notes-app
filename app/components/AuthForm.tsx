@@ -48,7 +48,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
     if (error) {
       console.error("Google sign-in error:", error);
     } else {
-      router.push("/");
+      router.push("/notes");
     }
   };
 
