@@ -19,7 +19,7 @@ export default function Home() {
       }
     }
     getSession();
-  }, [supabase]);
+  }, []);
 
   return <></>;
 }

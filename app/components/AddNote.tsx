@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useCreateNote } from "@/hooks/useCreateNote";
 import { useSummarize } from "@/hooks/useSummarize";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function AddNot() {
@@ -11,9 +12,12 @@ export default function AddNot() {
   const { mutate: summarize, data: summary, isPending } = useSummarize();
   const { mutate: createNote } = useCreateNote();
 
+  const router = useRouter();
+
   const handleSave = () => {
     createNote(note);
-    setNote("");
+    // setNote("");
+    router.push("/notes");
   };
 
   return (
