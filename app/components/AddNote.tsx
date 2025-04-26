@@ -20,6 +20,11 @@ export default function AddNot() {
     router.push("/notes");
   };
 
+  const handleSummary = () => {
+    createNote(summary);
+    router.push("/notes");
+  };
+
   return (
     <div className="max-w-xl mx-auto space-y-4 my-4">
       <Textarea
@@ -45,10 +50,15 @@ export default function AddNot() {
         </Button>
       </div>
       {summary && (
-        <div className="mt-4 p-4 rounded bg-gray-100 border">
-          <h3 className="font-semibold">Summary:</h3>
-          <p>{summary}</p>
-        </div>
+        <>
+          <div className="mt-4 p-4 rounded bg-gray-100 border">
+            <h3 className="font-semibold">Summary:</h3>
+            <p>{summary}</p>
+          </div>
+          <Button onClick={handleSummary} className="cursor-pointer">
+            Save Summary
+          </Button>
+        </>
       )}
     </div>
   );
