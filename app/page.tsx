@@ -13,7 +13,7 @@ export default function Home() {
         data: { session },
       } = await supabase.auth.getSession();
       if (!session) {
-        router.push("/auth/signup");
+        router.push("/auth/login");
       } else {
         router.push("/notes");
       }
